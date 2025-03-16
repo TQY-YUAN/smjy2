@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+    <head>
+		<!-- HTML written by MaoRX.cn -->
+        <!-- Copyright MaoRX. All Rights Reserved. -->
+        <meta charset="utf-8">
+		<meta name="description" content="使命精英2内测版" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>使命精英2内测版</title>
+        <link rel="shortcut icon" href="https://maorx.cn/images/icon_new.ico"/>
+		<link rel="stylesheet" href="../css/xmfls_home.css">
+        <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript">
+        	var videoPaused=false;
+        	var content2Top;
+			window.onload=function(){
+				bgBox.style.opacity="1";
+				setTimeout(function(){
+					bgBoxNew.style.opacity="1";
+				},1500);
+				ua = navigator.userAgent;
+				isIpad = ua.match(/(iPad).*OS\s([\d_]+)/),
+				isIphone = ua.match(/(iPhone\sOS)\s([\d_]+)/),
+				isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+				isMobile = isIpad || isIphone || isAndroid;
+				if(isMobile){
+					content2Top = $("#content1").offset().top;
+				}else{
+					content2Top = $(".videoBox").offset().top;
+				}
+			};
+			$(function(){
+				var contentTop = $("#btnDownload").offset().top;
+				$(window).scroll(function(){
+					var this_scrollTop = $(this).scrollTop();
+					if(window.screen.width > 1000){
+						if(this_scrollTop > contentTop ){
+							if($("#content1").css("text-align")=="center" && $("#content1").css("opacity")=="1"){
+								$("#content1").css({
+									"opacity":"0",
+								});
+								$("#title1").css({
+									"opacity":"0",
+								});
+								setTimeout(function(){
+									$("#content1").css({
+										"text-align":"left",
+										"opacity":"1",
+									});
+									$("#title1").css({
+										"text-align":"left",
+										"opacity":"1",
+									});
+									$("#picBox1").css({
+									"opacity":"1",
+									});
+								},500);
+							}
+						} else {
+							if($("#content1").css("text-align")=="left" && $("#content1").css("opacity")=="1"){
+								$("#content1").css({
+									"opacity":"0",
+								});
+								$("#title1").css({
+									"opacity":"0",
+								});
+								$("#picBox1").css({
+									"opacity":"0",
+								});
+								setTimeout(function(){
+									$("#content1").css({
+										"text-align":"center",
+										"opacity":"1",
+									});
+									$("#title1").css({
+										"text-align":"center",
+										"opacity":"1",
+									});
+								},500);
+							}
+						}
+					}
+					if(window.screen.width > 600){
+						if(this_scrollTop > content2Top ){
+							$("#cBox2_1").css({
+								"left":"30%",
+								"width":"70%",
+							});
+							$("#picBox2").css({
+								"left":"0%",
+							});
+						} else {
+							$("#cBox2_1").css({
+								"left":"0%",
+								"width":"100%",
+							});
+							$("#picBox2").css({
+								"left":"-30%",
+							});
+						}
+					}
+				});
+			}); 
+			jQuery(document).ready(function($){
+                $('.godown').click(function(){$('html,body').animate({scrollTop:$('#cBox1').offset().top}, 800);});
+            });
+            // function playVideo(){
+            // 	vTitle.style.opacity="0";
+			// 	btnPlayBox.style.opacity="0";
+			// 	vBili.style.opacity="0";
+			// 	vTitle.style.cursor="default";
+			// 	btnPlay.style.cursor="default";
+			// 	vLink.style.cursor="default";
+            // 	if(videoPaused==true){
+            // 		videoP.style.filter="none";
+            // 		videoP.play();
+            // 		videoPaused=false;
+            // 	}else{
+	        //     	videoCover1.style.display="none";
+	        //     	vDescription.style.opacity="0";
+			// 		//videoCover2.style.MozTransform="scale(1.1)";
+			// 		//videoCover2.style.WebkitTransform="scale(1.1)";
+			// 		videoCover2.style.transition="opacity 1s";
+			// 		setTimeout(function(){
+			// 			vDescription.style.display="none";
+			// 			videoCover2.style.opacity="0";
+			// 			videoP.play()
+			// 		},2018);
+			// 	}
+			// 	setTimeout(function(){
+			// 		vTitle.style.display="none";
+			// 		btnPlayBox.style.display="none";
+			// 		vLink.style.display="none";
+			// 	},500);
+            // }
+            // function pauseVideo(event){
+            // 	var obj=event.srcElement;
+            // 	if(obj.id=="videoCover3"){
+	        //     	if(videoPaused==false&&videoP.currentTime!=0){
+	        //     		videoP.pause();
+	        //     		videoPaused=true;
+	        //     		vTitle.style.display="block";
+			// 			btnPlayBox.style.display="block";
+			// 			vLink.style.display="block";
+	        //     		videoCover2.style.display="none";
+	        //     		videoP.style.filter="brightness(50%)";
+	        //     		setTimeout(function(){
+			// 				btnPlayBox.style.opacity="1";
+			// 				vTitle.style.opacity="1";
+			// 				vBili.style.opacity="1";
+			// 				vTitle.style.cursor="pointer";
+			// 				btnPlay.style.cursor="pointer";
+			// 				vLink.style.cursor="pointer";
+			// 			},500);
+	        //     	}
+	        //     }
+            // }
+            // function videoEnded(){
+            // 	vTitle.style.display="block";
+			// 	btnPlayBox.style.display="block";
+			// 	vLink.style.display="block";
+			// 	vDescription.style.opacity="0";
+			// 	vDescription.style.display="block";
+			// 	videoCover1.style.opacity="0";
+			// 	videoCover1.style.display="block";
+	        //     videoCover2.style.display="block";
+	        //     setTimeout(function(){
+			// 		videoCover2.style.opacity="1";
+			// 	},250);
+			// 	setTimeout(function(){
+			// 		btnPlayBox.style.opacity="1";
+			// 		vTitle.style.opacity="1";
+			// 		vBili.style.opacity="1";
+			// 		vTitle.style.cursor="pointer";
+			// 		btnPlay.style.cursor="pointer";
+			// 		vLink.style.cursor="pointer";
+			// 		videoCover2.style.transition="opacity 0.5s";
+			// 	},2018);
+            // }
+		</script>
+    </head>
+    
+    <body>
+    	<div id="bgBox"></div>
+    	<div id="bgBoxNew"></div>
+    	<div id="pictitle"></div>
+    	<div class="btnMain" id="btnDownload" onclick="window.open('https://www.bilibili.com/video/av25735331')">「七（1）班」即将发布</div>
+    	<div class="godown">向下滑动以了解更多</div>
+        <div class="mainBox">
+	        <div class="contentbox" id="cBox1">
+	        	<div id="picBox1"></div>
+	        	<div class="title" id="title1">关于 「 使命精英2（内测版）」</div>
+	        	<div class="content" id="content1">
+	        		<p>「 使命精英2（内测版） 」是由谭淇元和叶锦达联合制作的项目</p>
+	        		<p>我们的目标是开发<font color="#70C000">一款以射击游戏为地图场景的多端（手机、电脑、网页）游戏</font></p>
+	        		<p>目前第一阶段开发已完成、预计<font color="#70C000">本学期发布</font></p>
+	        		<p>我们使用unity游戏引擎制作</p>
+	        		<p>包括游戏内的所有建模</p>
+	        		<p>并将逐步加入室内景观、天气系统等</p>
+	        		<p>如对游戏有任何修改建议请<font color="#70C000">分享到七（1）班</font></p>
+	        		<p>旨在为所有七（1）班同学制作一款适合自己的射击游戏</p>
+	        		<p>分享你的创意，加入我们吧！</p>
+	        	</div>
+	        </div>
+	        <div class="videoBox">
+	        	<!-- <video src="../videos/Project_XMFLS_Trailer.mp4" id="videoP" onended="videoEnded()"></video>
+	        	<div class="videoCover" id="videoCover1"></div> -->
+				<iframe id="videoFrame" src="" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+	        	<!-- <div class="videoCover" id="videoCover2"></div>
+	        	<div class="videoCover" id="videoCover3" onclick="pauseVideo(event)">
+	        		<div id="vTitle" onclick="playVideo()">▷ 现在播放预告片</div>
+	        		<div id="vDescription">
+	        			<p>「  使命精英2（内测版）」 预告片全长5分钟</p>
+	        			<p>片中镜头均来自游戏内实时渲染画面</p>
+	        			<p>点此立即播放</p>
+	        		</div>
+	        		<div id="btnPlayBox"><div id="btnPlay" onclick="playVideo()">▶</div></div>
+	        		<div id="vBili">您也可以<a href="https://www.bilibili.com/video/av25735331" target="_blank" class="links1" id="vLink">前往哔哩哔哩观看</a></div>
+	        	</div> -->
+	        </div>
+	        <div class="contentbox" id="cBox2">
+	        	<div id="picBox2">
+	        		<!--<div class="btnMain" id="btnDownload2" title="" onclick="alert('嘤嘤嘤');">Demo即将发布</div>-->
+	        	</div>
+	        	<div id="cBox2_1">
+		        	<div class="title" id="title2">电脑以最高画质运行的最低配置</div>
+		        	<div class="content" id="content2">
+		        		<p><font color="#70C000">操作系统：</font>64位 Windows 7 或更新的64位Windows操作系统</p>
+		        		<p><font color="#70C000">处理器：</font>Intel Core i5-6600K / AMD FX-8350 或同级别的CPU</p>
+		        		<p><font color="#70C000">内存：</font>8 GB RAM</p>
+		        		<p><font color="#70C000">显卡：</font>NVIDIA GeForce GTX 970 / AMD Radeon R9 390 或同级别和以上的GPU</p>
+		        		<p><font color="#70C000">硬盘：</font>3 GB 可用存储空间</p>
+                           </div>
+                           <div id="cBox2_1">
+                             <div class="title" id="title2">手机以最高画质运行的最低配置</div>
+                              <div class="content" id="content2">
+		        		<p><font color="#70C000">手机要求：</font>有一部手机就行</p>
+                                        </div>
+                                </div>
+	        	</div>
+	        </div>
+	        <div class="footer">
+	        	<p>图像均来自「使命精英2（内测版）」游戏内截图</p>
+	        	<p>Made by unity, with <font size="+1" color="#E91E64">💕</font>, for YOU.</p>
+	        	&copy; 2025 <a href="" title="微信" target="_blank" class="links">打赏</a> 丨 <a href="" title="" target="_blank" class="links">太极</a>
+	        </div>
+	    </div>
+
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan style='display:none;' id='cnzz_stat_icon_1261177803'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261177803' type='text/javascript'%3E%3C/script%3E"));</script>
+    </body>
+</html>
